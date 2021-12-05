@@ -2,6 +2,9 @@
   "folders": [
     {
       "path": "./flutter_mao_na_massa"
+    },
+    {
+      "path": "./flutter_mao_na_massa_navegacao"
     }
   ]
 }
