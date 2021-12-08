@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_primeiro_projeto/pages/botoes_rotacao_texto/botoes_rotacao_texto_page.dart';
+import 'package:flutter_primeiro_projeto/pages/cidades/cidades_page.dart';
 import 'package:flutter_primeiro_projeto/pages/container/container_page.dart';
 import 'package:flutter_primeiro_projeto/pages/dialogs/dialogs_page.dart';
 import 'package:flutter_primeiro_projeto/pages/forms/forms_page.dart';
@@ -53,6 +54,7 @@ class MyApp extends StatelessWidget {
         '/dialogs': (_) => const DialogsPage(),
         '/snackbars': (_) => const SnackbarPage(),
         '/forms': (_) => const FormsPage(),
+        '/cidades': (_) => const CidadesPage(),
       },
     );
   }
