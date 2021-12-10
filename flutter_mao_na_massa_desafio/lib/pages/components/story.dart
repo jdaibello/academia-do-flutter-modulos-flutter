@@ -5,11 +5,13 @@ class Story extends StatelessWidget {
   final String username;
   final String imageUrl;
   final bool isFirst;
+  final bool isLive;
 
   const Story({
     required this.username,
     required this.imageUrl,
     this.isFirst = false,
+    this.isLive = false,
     Key? key,
   }) : super(key: key);
 
@@ -21,7 +23,7 @@ class Story extends StatelessWidget {
           padding: isFirst
               ? const EdgeInsets.only(top: 8, left: 16, right: 16)
               : const EdgeInsets.only(top: 8, right: 16),
-          child: ImageAvatar(imgUrl: imageUrl),
+          child: ImageAvatar(imgUrl: imageUrl, isLive: isLive),
         ),
         Padding(
           padding: isFirst

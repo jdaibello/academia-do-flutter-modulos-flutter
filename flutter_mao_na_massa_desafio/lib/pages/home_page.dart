@@ -55,7 +55,7 @@ class HomePage extends StatelessWidget {
       body: Column(
         children: [
           Container(
-            height: bodyHeight * 0.25,
+            height: bodyHeight * 0.22,
             color: Theme.of(context).primaryColor,
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
@@ -71,6 +71,7 @@ class HomePage extends StatelessWidget {
                     username: 'neymarjr',
                     imageUrl:
                         'https://upload.wikimedia.org/wikipedia/commons/8/83/Bra-Cos_%281%29_%28cropped%29.jpg',
+                    isLive: true,
                   ),
                   Story(
                     username: 'psg',
@@ -83,7 +84,7 @@ class HomePage extends StatelessWidget {
                         'https://pbs.twimg.com/profile_images/1409804369810296833/V41wBiqw_400x400.jpg',
                   ),
                   Story(
-                    username: 'cristiano.ronaldo',
+                    username: 'ronaldo7',
                     imageUrl:
                         'https://i0.statig.com.br/bancodeimagens/6g/y2/is/6gy2isxpckzeslb0juwvgl8q8.jpg',
                   ),
@@ -98,7 +99,7 @@ class HomePage extends StatelessWidget {
                         'https://s2.glbimg.com/ZdAxQHmYB8LGHhRkozhPz6t8OFg=/0x0:1200x750/924x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_bc8228b6673f488aa253bbcb03c80ec5/internal_photos/bs/2017/M/l/tJe4DERc6Vxp4i2HMAFg/f1-logo-red-on-white.png',
                   ),
                   Story(
-                    username: 'lewis.hamilton',
+                    username: 'hamilton',
                     imageUrl:
                         'https://pbs.twimg.com/profile_images/1459959233601056774/_mVgeTmO_400x400.jpg',
                   ),
@@ -117,8 +118,150 @@ class HomePage extends StatelessWidget {
             ),
           ),
           Container(
-            height: bodyHeight * 0.75,
+            height: bodyHeight * 0.78,
             color: Theme.of(context).primaryColor,
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 6),
+                    child: ListTile(
+                      leading: const CircleAvatar(
+                        backgroundImage: NetworkImage(
+                          'https://upload.wikimedia.org/wikipedia/commons/8/83/Bra-Cos_%281%29_%28cropped%29.jpg',
+                        ),
+                      ),
+                      title: const Text(
+                        'neymarjr',
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.white,
+                        ),
+                      ),
+                      trailing: IconButton(
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.more_horiz,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 6),
+                    child: SizedBox(
+                      width: mediaQuery.size.width,
+                      height: bodyHeight * 0.5,
+                      child: Image.network(
+                        'https://conteudo.imguol.com.br/c/esporte/ef/2021/12/07/mbappe-e-messi-comemoram-gol-do-psg-sobre-o-club-brugge-na-liga-dos-campeoes-2021-22-1638902671262_v2_450x337.jpg',
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          IconButton(
+                            onPressed: () {},
+                            icon: Image.asset(
+                              'assets/images/heart.png',
+                              width: 24,
+                              height: 24,
+                            ),
+                          ),
+                          IconButton(
+                            onPressed: () {},
+                            icon: Image.asset(
+                              'assets/images/comment_post.png',
+                              width: 24,
+                              height: 24,
+                            ),
+                          ),
+                          IconButton(
+                            onPressed: () {},
+                            icon: Image.asset(
+                              'assets/images/share_post.png',
+                              width: 24,
+                              height: 24,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          IconButton(
+                            onPressed: () {},
+                            icon: Image.asset(
+                              'assets/images/save_post.png',
+                              width: 24,
+                              height: 24,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.all(10),
+                    child: Text(
+                      '198.405 curtidas',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      top: 4,
+                      right: 10,
+                      bottom: 10,
+                      left: 10,
+                    ),
+                    child: RichText(
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      text: const TextSpan(
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                        children: <TextSpan>[
+                          TextSpan(
+                            text: 'neymarjr',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          TextSpan(
+                            text:
+                                ': Mais uma vitória para a conta. Que Deus nos abençoe para que consigamos avançar na competição.',
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(
+                      top: 4,
+                      right: 10,
+                      bottom: 10,
+                      left: 10,
+                    ),
+                    child: Text(
+                      'Ver todos os 18.923 comentários',
+                      style: TextStyle(
+                        color: Colors.white54,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ),
         ],
       ),
