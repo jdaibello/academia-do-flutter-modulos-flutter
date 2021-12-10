@@ -163,7 +163,63 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
-      body: Container(),
+      body: Theme(
+        data: Theme.of(context).copyWith(
+          primaryColor: Colors.blueGrey,
+          elevatedButtonTheme: ElevatedButtonThemeData(
+            style: ElevatedButton.styleFrom(
+              primary: Colors.black12,
+            ),
+          ),
+        ),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                onPressed: () {},
+                child: const Text('Botão X'),
+              ),
+              const ContainerX(),
+              Container(
+                height: 100,
+                width: 100,
+                color: Theme.of(context).primaryColor,
+              ),
+              Builder(
+                builder: (contextInterno) {
+                  return Container(
+                    height: 100,
+                    width: 100,
+                    color: Theme.of(contextInterno).primaryColor,
+                  );
+                },
+              ),
+              TextButton(
+                onPressed: () {},
+                child: const Text('TESTE'),
+                style: TextButton.styleFrom(
+                  primary: Colors.black,
+                  textStyle: const TextStyle(fontSize: 30),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class ContainerX extends StatelessWidget {
+  const ContainerX({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 100,
+      width: 100,
+      color: Theme.of(context).primaryColor,
     );
   }
 }
