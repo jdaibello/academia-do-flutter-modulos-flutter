@@ -11,6 +11,9 @@
     },
     {
       "path": "./flutter_mao_na_massa_desafio"
+    },
+    {
+      "path": "./flutter_default_state_manager"
     }
   ]
 }
