@@ -3,11 +3,11 @@ import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
 class DatabaseSqLite {
-  Future<void> openConnection() async {
+  Future<Database> openConnection() async {
     final databasePath = await getDatabasesPath();
     final databaseFinalPath = join(databasePath, 'SQLITE_EXAMPLE');
 
-    await openDatabase(
+    return await openDatabase(
       databaseFinalPath,
       version: 2,
       onConfigure: (db) async {
@@ -21,6 +21,13 @@ class DatabaseSqLite {
       onCreate: (Database db, int version) {
         debugPrint('onCreate chamado');
         final batch = db.batch();
+
+        batch.execute('''
+          CREATE TABLE teste(
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            nome VARCHAR(200)
+          )
+        ''');
 
         batch.execute('''
           CREATE TABLE produto(
