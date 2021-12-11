@@ -25,8 +25,10 @@ class _ImcSetStatePageState extends State<ImcSetStatePage> {
     super.dispose();
   }
 
-  Future<void> _calcularIMC(
-      {required double peso, required double altura}) async {
+  Future<void> _calcularIMC({
+    required double peso,
+    required double altura,
+  }) async {
     setState(() {
       imc = 0;
     });
@@ -40,7 +42,7 @@ class _ImcSetStatePageState extends State<ImcSetStatePage> {
 
   @override
   Widget build(BuildContext context) {
-    debugPrint('Build TELA');
+    debugPrint('BUILD_TELA');
 
     return Scaffold(
       appBar: AppBar(

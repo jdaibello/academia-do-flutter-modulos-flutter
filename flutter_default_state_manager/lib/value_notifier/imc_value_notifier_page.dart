@@ -5,18 +5,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_default_state_manager/widgets/imc_gauge.dart';
 import 'package:intl/intl.dart';
 
-class ImcSetStatePage extends StatefulWidget {
-  const ImcSetStatePage({Key? key}) : super(key: key);
+class ImcValueNotifierPage extends StatefulWidget {
+  const ImcValueNotifierPage({Key? key}) : super(key: key);
 
   @override
-  State<ImcSetStatePage> createState() => _ImcSetStatePageState();
+  State<ImcValueNotifierPage> createState() => _ImcValueNotifierPageState();
 }
 
-class _ImcSetStatePageState extends State<ImcSetStatePage> {
+class _ImcValueNotifierPageState extends State<ImcValueNotifierPage> {
   final pesoEC = TextEditingController();
   final alturaEC = TextEditingController();
   final formKey = GlobalKey<FormState>();
-  var imc = 0.0;
+  var imc = ValueNotifier(0.0);
 
   @override
   void dispose() {
@@ -29,15 +29,9 @@ class _ImcSetStatePageState extends State<ImcSetStatePage> {
     required double peso,
     required double altura,
   }) async {
-    setState(() {
-      imc = 0;
-    });
-
+    imc.value = 0;
     await Future.delayed(const Duration(seconds: 1));
-
-    setState(() {
-      imc = peso / pow(altura, 2);
-    });
+    imc.value = peso / pow(altura, 2);
   }
 
   @override
@@ -46,7 +40,7 @@ class _ImcSetStatePageState extends State<ImcSetStatePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('IMC setState'),
+        title: const Text('IMC ValueNotifier'),
       ),
       body: SingleChildScrollView(
         child: Form(
@@ -55,7 +49,16 @@ class _ImcSetStatePageState extends State<ImcSetStatePage> {
             padding: const EdgeInsets.all(8),
             child: Column(
               children: [
-                ImcGauge(imc: imc),
+                ValueListenableBuilder<double>(
+                  valueListenable: imc,
+                  builder: (_, imcValue, __) {
+                    //* O ValueNotifier não rebuilda a tela toda, somente
+                    //* a parte da tela onde o elemento está envolvido.
+                    //* É mais eficiente e mais interesante para trabalhar.
+                    debugPrint('ValueListenableBuilder');
+                    return ImcGauge(imc: imcValue);
+                  },
+                ),
                 const SizedBox(height: 20),
                 TextFormField(
                   controller: pesoEC,
