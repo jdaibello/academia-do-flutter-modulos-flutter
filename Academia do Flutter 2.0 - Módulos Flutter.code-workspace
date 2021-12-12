@@ -23,6 +23,9 @@
     },
     {
       "path": "./flutter_provider_example"
+    },
+    {
+      "path": "./todo_list_provider"
     }
   ]
 }
