@@ -20,6 +20,9 @@
     },
     {
       "path": "./flutter_sqlite_example"
+    },
+    {
+      "path": "./flutter_provider_example"
     }
   ]
 }
