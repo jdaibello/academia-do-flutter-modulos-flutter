@@ -5,6 +5,7 @@ class TodoListField extends StatelessWidget {
   final String label;
   final IconButton? suffixIconButton;
   final bool obscureText;
+  final TextInputType inputType;
   final ValueNotifier<bool> obscureTextVN;
   final TextEditingController? controller;
   final FormFieldValidator<String>? validator;
@@ -13,6 +14,7 @@ class TodoListField extends StatelessWidget {
     required this.label,
     this.suffixIconButton,
     this.obscureText = false,
+    this.inputType = TextInputType.text,
     this.controller,
     this.validator,
     Key? key,
@@ -30,6 +32,7 @@ class TodoListField extends StatelessWidget {
       builder: (_, obscureTextValue, child) {
         return TextFormField(
           controller: controller,
+          keyboardType: inputType,
           validator: validator,
           decoration: InputDecoration(
             labelText: label,
