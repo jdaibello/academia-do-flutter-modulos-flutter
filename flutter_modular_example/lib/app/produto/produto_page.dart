@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:flutter_modular_example/app/categoria/model/preco_model.dart';
 
 class ProdutoPage extends StatelessWidget {
   final String? nome;
@@ -11,10 +13,20 @@ class ProdutoPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Produto'),
       ),
-      body: Column(
-        children: [
-          Text(nome ?? 'Nome não enviado'),
-        ],
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(nome ?? 'Nome não enviado'),
+            TextButton(
+              onPressed: () {
+                var preco = Modular.get<PrecoModel>();
+                debugPrint('${preco.hashCode}');
+              },
+              child: const Text('Get Preço'),
+            ),
+          ],
+        ),
       ),
     );
   }
