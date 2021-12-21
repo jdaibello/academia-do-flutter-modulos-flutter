@@ -1,34 +1,37 @@
 {
-    "folders": [
-        {
-            "path": "./flutter_mao_na_massa"
-        },
-        {
-            "path": "./flutter_mao_na_massa_navegacao"
-        },
-        {
-            "path": "./flutter_primeiro_projeto"
-        },
-        {
-            "path": "./flutter_mao_na_massa_desafio"
-        },
-        {
-            "path": "./flutter_default_state_manager"
-        },
-        {
-            "path": "./flutter_inherited_widget_example"
-        },
-        {
-            "path": "./flutter_sqlite_example"
-        },
-        {
-            "path": "./flutter_provider_example"
-        },
-        {
-            "path": "./todo_list_provider"
-        },
-        {
-            "path": "./mobx_imc"
-        }
-    ]
+  "folders": [
+    {
+      "path": "./flutter_mao_na_massa"
+    },
+    {
+      "path": "./flutter_mao_na_massa_navegacao"
+    },
+    {
+      "path": "./flutter_primeiro_projeto"
+    },
+    {
+      "path": "./flutter_mao_na_massa_desafio"
+    },
+    {
+      "path": "./flutter_default_state_manager"
+    },
+    {
+      "path": "./flutter_inherited_widget_example"
+    },
+    {
+      "path": "./flutter_sqlite_example"
+    },
+    {
+      "path": "./flutter_provider_example"
+    },
+    {
+      "path": "./todo_list_provider"
+    },
+    {
+      "path": "./mobx_imc"
+    },
+    {
+      "path": "./flutter_modular_example"
+    }
+  ]
 }
