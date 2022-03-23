@@ -47,6 +47,20 @@ class HomePage extends StatelessWidget {
               },
               child: const Text('Ir para Detalhe2 e aguardar'),
             ),
+            TextButton(
+              onPressed: () async {
+                debugPrint('Antes de navegar para a página Detalhe 3');
+
+                //* Tipar o tipo de retorno somente quando usar
+                //* navegação customizada com onGenerateRoute
+                final retorno = await Navigator.of(context).pushNamed<String>(
+                  '/detalhe3',
+                );
+                debugPrint('O retorno de Detalhe 3 é $retorno');
+                debugPrint('Navegou para a página Detalhe 3');
+              },
+              child: const Text('Ir para Detalhe 3'),
+            ),
           ],
         ),
       ),
