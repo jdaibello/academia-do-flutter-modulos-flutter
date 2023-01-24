@@ -35,6 +35,9 @@
     },
     {
       "path": "./counter_bloc"
+    },
+    {
+      "path": "./contact_bloc"
     }
   ],
   "settings": {}
