@@ -32,6 +32,10 @@
     },
     {
       "path": "./flutter_modular_example"
+    },
+    {
+      "path": "./counter_bloc"
     }
-  ]
+  ],
+  "settings": {}
 }
