@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:contact_bloc/features/bloc_example/bloc/example_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,6 +12,26 @@ class BlocExamplePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Bloc Example'),
+      ),
+      floatingActionButton: BlocBuilder<ExampleBloc, ExampleState>(
+        builder: (context, state) {
+          if (state is ExampleStateData) {
+            return FloatingActionButton(
+              onPressed: () {
+                var randomNumber = Random();
+
+                context.read<ExampleBloc>().add(
+                      ExampleAddNameEvent(
+                        name: 'Novo Nome #${randomNumber.nextInt(1000)}',
+                      ),
+                    );
+              },
+              child: const Icon(Icons.person_add),
+            );
+          }
+
+          return const SizedBox.shrink();
+        },
       ),
       body: BlocListener<ExampleBloc, ExampleState>(
         listenWhen: (previous, current) {
@@ -83,21 +105,23 @@ class BlocExamplePage extends StatelessWidget {
                 return [];
               },
               builder: (context, names) {
-                return ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: names.length,
-                  itemBuilder: (context, index) {
-                    final name = names[index];
+                return Expanded(
+                  child: ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: names.length,
+                    itemBuilder: (context, index) {
+                      final name = names[index];
 
-                    return ListTile(
-                      onTap: () {
-                        context.read<ExampleBloc>().add(
-                              ExampleRemoveNameEvent(name: name),
-                            );
-                      },
-                      title: Text(name),
-                    );
-                  },
+                      return ListTile(
+                        onTap: () {
+                          context.read<ExampleBloc>().add(
+                                ExampleRemoveNameEvent(name: name),
+                              );
+                        },
+                        title: Text(name),
+                      );
+                    },
+                  ),
                 );
               },
             ),
